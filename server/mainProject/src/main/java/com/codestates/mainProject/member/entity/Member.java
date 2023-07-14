@@ -1,7 +1,10 @@
 package com.codestates.mainProject.member.entity;
 
 import com.codestates.mainProject.audit.Auditable;
+import com.codestates.mainProject.crewing.entity.Crewing;
+import com.codestates.mainProject.crewing.entity.CrewingMembers;
 import com.codestates.mainProject.follow.entity.Follow;
+import com.codestates.mainProject.likes.entity.Likes;
 import com.codestates.mainProject.posts.entity.Post;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -51,5 +54,15 @@ public class Member extends Auditable {
 
     public void addPost(Post post) {
         posts.add(post);
+    }
+
+    @OneToMany(mappedBy = "member")
+    private List<CrewingMembers> crewingMembers = new ArrayList<>();
+
+    @OneToMany(mappedBy = "member")
+    private List<Likes> likes = new ArrayList<>();
+
+    public void addCrewingMembers(CrewingMembers crewingMember) {
+        crewingMembers.add(crewingMember);
     }
 }

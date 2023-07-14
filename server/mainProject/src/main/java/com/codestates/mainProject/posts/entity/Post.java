@@ -2,6 +2,7 @@ package com.codestates.mainProject.posts.entity;
 
 import com.codestates.mainProject.audit.Auditable;
 import com.codestates.mainProject.comment.entity.Comment;
+import com.codestates.mainProject.likes.entity.Likes;
 import com.codestates.mainProject.member.entity.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,7 +30,7 @@ public class Post extends Auditable {
     @Column(nullable = false, updatable = false)
     private String category;
 
-    @Column(nullable = true)
+    @Column
     private long kcal = 0;
 
     @Column(nullable = false)
@@ -40,15 +41,14 @@ public class Post extends Auditable {
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
 
-    /*
-    @OneToMany(mappedBy = "post", cascade = {CascadeType.ALL})
-    private List<Comment> comments = new ArrayList<>();
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<Likes> likes = new ArrayList<>();
 
-    public void addComment(Comment comment){
-        this.comments.add(comment);
+    public void addLike(Likes like) {
+        likes.add(like);
+        like.setPost(this);
     }
-    */
 }

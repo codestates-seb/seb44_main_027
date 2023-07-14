@@ -32,7 +32,7 @@ public class Likes {
     private Crewing crewing;
 
     @ManyToOne
-    @JoinColumn(name = "POST_ID")
+    @JoinColumn(name = "COMMENT_ID")
     private Comment comment;
 
 }

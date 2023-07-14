@@ -42,7 +42,7 @@ public class CommentController {
         Comment comment = commentService.updateComment(mapper.commentPutToComment(commentPutDto));
 
 
-        return new ResponseEntity<>(mapper.CommentToCommentResponse(comment), HttpStatus.OK);
+        return new ResponseEntity<>(mapper.commentToCommentResponse(comment), HttpStatus.OK);
     }
 
     @DeleteMapping("/{comment-id}")
