@@ -27,8 +27,8 @@ public class LikesController {
     }
 
     @PostMapping
-    public ResponseEntity postLikes(@Valid @RequestBody LikesDto.PostDto likesPostDto) {
-        Likes likes = likesService.createLikes(mapper.likesPostToLikes(likesPostDto));
+    public ResponseEntity addLikes(@Valid @RequestBody LikesDto.PostDto likesPostDto) {
+        Likes likes = likesService.addLikes(mapper.likesPostToLikes(likesPostDto));
 
         return new ResponseEntity<>(HttpStatus.OK);
     }

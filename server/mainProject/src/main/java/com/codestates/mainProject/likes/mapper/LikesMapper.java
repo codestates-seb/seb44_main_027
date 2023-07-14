@@ -20,29 +20,29 @@ public interface LikesMapper {
 //    @Mapping(target = "comment.commentId", source = "commentId", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 //    Likes likesPostToLikes(LikesDto.PostDto postDto);
 
-    default Likes likesPostToLikes(LikesDto.PostDto postDto) {
+    default Likes likesPostToLikes(LikesDto.PostDto likesPostDto) {
         Likes likes = new Likes();
 
         Member member = new Member();
-        member.setMemberId(postDto.getMemberId());
+        member.setMemberId(likesPostDto.getMemberId());
         likes.setMember(member);
 
 
-        if(postDto.getPostId() != null) {
+        if(likesPostDto.getPostId() != null) {
             Post post = new Post();
-            post.setPostId(postDto.getPostId());
+            post.setPostId(likesPostDto.getPostId());
             likes.setPost(post);
         }
 
-        if(postDto.getCrewingId() != null) {
+        if(likesPostDto.getCrewingId() != null) {
             Crewing crewing = new Crewing();
-            crewing.setCrewingId(postDto.getCrewingId());
+            crewing.setCrewingId(likesPostDto.getCrewingId());
             likes.setCrewing(crewing);
         }
 
-        if(postDto.getCommentId() != null) {
+        if(likesPostDto.getCommentId() != null) {
             Comment comment = new Comment();
-            comment.setCommentId(postDto.getCommentId());
+            comment.setCommentId(likesPostDto.getCommentId());
             likes.setComment(comment);
         }
 

@@ -22,7 +22,9 @@ public class LikesService {
         this.memberRepository = memberRepository;
     }
 
-    public Likes createLikes(Likes likes) {
+    public Likes addLikes(Likes likes) {
+        Long memberId = likes.getMember().getMemberId();
+
         String principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         Optional<Member> verifiedMember = memberRepository.findByEmail(principal);
 
@@ -31,12 +33,55 @@ public class LikesService {
 
         likes.setMember(member);
 
-        return likesRepository.save(likes);
+        if(likes.getPost() != null) {
+            Long postId = likes.getPost().getPostId();
+            Likes existPostLikes = likesRepository.findByPostPostIdAndMemberMemberId(postId, memberId);
+            if (existPostLikes != null) {
+                cancelPostLike(postId, memberId);
+            } else {
+                likesRepository.save(likes);
+            }
+        }
+
+        if(likes.getCrewing() != null) {
+            Long crewingId = likes.getCrewing().getCrewingId();
+            Likes existCrewingLikes = likesRepository.findByCrewingCrewingIdAndMemberMemberId(crewingId, memberId);
+            if (existCrewingLikes != null) {
+                cancelCrewingLike(crewingId, memberId);
+            } else {
+                likesRepository.save(likes);
+            }
+        }
+
+        if(likes.getComment() != null) {
+            Long commentId = likes.getComment().getCommentId();
+            Likes existCommentLikes = likesRepository.findByCommentCommentIdAndMemberMemberId(commentId, memberId);
+            if (existCommentLikes != null) {
+                cancelCommentLike(commentId, memberId);
+            } else {
+                likesRepository.save(likes);
+            }
+        }
+
+        return likes;
     }
 
-    public void deleteLikes(long likesId) {
-        
+    public void cancelPostLike(long postId, long memberId) {
+        Likes likes = likesRepository.findByPostPostIdAndMemberMemberId(postId, memberId);
+
+        likesRepository.delete(likes);
     }
 
+    public void cancelCrewingLike(long crewingId, long memberId) {
+        Likes likes = likesRepository.findByCrewingCrewingIdAndMemberMemberId(crewingId, memberId);
+
+        likesRepository.delete(likes);
+    }
+
+    public void cancelCommentLike(long commentId, long memberId) {
+        Likes likes = likesRepository.findByCommentCommentIdAndMemberMemberId(commentId, memberId);
+
+        likesRepository.delete(likes);
+    }
 
 }
