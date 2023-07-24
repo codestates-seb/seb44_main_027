@@ -29,8 +29,9 @@ export const PostImg = styled.div`
 `;
 
 export const PostBody = styled.div`
-  /* width: 530px; */
+  width: 420px;
   /* flex-shrink: 0; */
+  /* max-width: 420px;*/
   min-width: 420px;
   display: flex;
   flex-direction: column;

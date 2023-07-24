@@ -14,7 +14,7 @@ export const Card = {
     transition: all 0.2s ease;
 
     &:hover {
-      border: 1px solid ${Color.Primary};
+      border: 1px solid ${Color.Secondary};
       box-shadow: 2px 4px 12px 0px rgba(0, 0, 0, 0.15);
       top: -2px;
       position: relative;
@@ -24,11 +24,15 @@ export const Card = {
         display: block;
         width: 142px;
         flex: none;
-        padding: 20px 14px;
-        background-color: ${Grayscale[20]};
+        padding: 14px 20px;
+        background-color: ${Color.SecondaryLight};
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+      }
+
+      .status {
+        display: none;
       }
     }
   `,
@@ -58,7 +62,7 @@ export const Card = {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${Color.Primary};
+    color: ${Color.Secondary};
     font-size: 14px;
     font-weight: 600;
     border-radius: 0px 0px 6px 6px;
@@ -126,7 +130,6 @@ export const Card = {
     width: 0px;
     flex: none;
     padding: 0px;
-    border-left: 1px solid ${Grayscale[20]};
     transition: width 0.2s ease;
     overflow: hidden;
   `,
@@ -140,7 +143,7 @@ export const Card = {
     color: ${Grayscale[60]};
   `,
   Text: styled.div`
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     color: ${Grayscale[80]};
   `,

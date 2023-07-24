@@ -1,5 +1,6 @@
 export const Grayscale = {
   White: '#ffffff',
+  10: '#FCFCFC',
   20: '#EDEDED',
   40: '#BFBFBF',
   60: '#808080',
@@ -15,6 +16,7 @@ export const Color = {
   Primary: '#12BFB5',
   Primary2: '#0A8D86',
   PrimaryRGB: '18,191,181',
-  Secondary: '#3029F2',
-  Tertiary: '#3658BF',
+  Secondary: '#F17333',
+  SecondaryLight: '#FFF5F0',
+  Tertiary: '#BD5A28',
 };

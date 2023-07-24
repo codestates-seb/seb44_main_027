@@ -74,7 +74,7 @@ function CommentEdit({ CommentData, setIsEdit, type }) {
         onKeyDown={handleKeyDown}
       />
       <Btn.Container>
-        <Btn.Edit onClick={handleClickEdit}>수정</Btn.Edit>
+        <Btn.Edit onClick={handleClickEdit}>수정완료</Btn.Edit>
         <Btn.Cancel onClick={handleClickCancel}>취소</Btn.Cancel>
       </Btn.Container>
     </Edit.Container>

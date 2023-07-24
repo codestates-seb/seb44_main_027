@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { Grayscale } from '../color';
+import { Grayscale, Color } from '../color';
 
 export const PostContainer = styled.section`
   width: 100%;
@@ -75,16 +75,26 @@ export const EditStyle = {
   `,
   CancelBtn: styled.button`
     font-size: 14px;
-    color: #737373;
+    color: ${Grayscale[60]};
     border: 0;
     background-color: #fff;
     margin-right: 20px;
+    cursor: pointer;
+    &:hover {
+      color: ${Grayscale[80]};
+    }
   `,
   Title: styled.input`
     width: 100%;
     margin-top: 40px;
-    height: 30px;
+    height: auto;
     padding: 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid ${Grayscale[40]};
+    &:focus {
+      outline: 1px solid ${Grayscale[80]};
+    }
   `,
 
   Content: styled.textarea`
@@ -93,17 +103,26 @@ export const EditStyle = {
     height: 80px;
     padding: 14px;
     resize: none;
+    border-radius: 6px;
+    border: 1px solid ${Grayscale[40]};
+    &:focus {
+      outline: 1px solid ${Grayscale[80]};
+    }
   `,
 
   EditBtn: styled.button`
-    width: 138px;
-    height: 60px;
-    font-size: 16px;
+    width: 100%;
+    height: 46px;
+    font-size: 14px;
+    font-weight: 600;
     margin-top: 16px;
-    color: #fff;
-    background-color: #222;
+    color: ${Grayscale.White};
+    background-color: ${Color.Secondary};
     border: 0;
     border-radius: 6px;
     cursor: pointer;
+    &:hover {
+      background-color: ${Color.Tertiary};
+    }
   `,
 };

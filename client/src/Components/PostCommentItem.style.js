@@ -10,6 +10,7 @@ export const Item = {
   Profile: styled.div`
     width: 32px;
     height: 32px;
+    align-self: flex-start;
   `,
   Img: styled.img`
     display: block;

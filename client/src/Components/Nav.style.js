@@ -10,7 +10,7 @@ export const NavContainer = styled.nav`
   width: 340px;
   height: 100vh;
   position: fixed;
-  padding: 36px 24px 0px 24px;
+  padding: 14px 24px 0px 24px;
   border-right: 1px solid ${Grayscale[20]};
   transition: all 1s ease-in-out;
 
@@ -24,6 +24,12 @@ export const NavLogoContainer = styled.section`
   height: 72px;
   display: flex;
   align-items: center;
+  margin-bottom: 24px;
+  margin-left: 20px;
+`;
+
+export const Logo = styled.img`
+  width: 4rem;
 `;
 
 export const NavMenuList = styled.ul`
