@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyledDots, SliderWrapper, StyledSlider } from './ImageCarousel.style';
-import image01 from '/images/image1.jpg';
-import image02 from '/images/image2.jpg';
-import image03 from '/images/image3.jpg';
+import image01 from '/images/img1.png';
+import image02 from '/images/img2.png';
+import image03 from '/images/img3.png';
 
 export default function ImageCarousel() {
   const settings = {

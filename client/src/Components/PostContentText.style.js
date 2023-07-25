@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { Grayscale } from '../color';
+import { Grayscale, Color } from '../color';
 
 export const Text = styled.div`
   flex-grow: 1;
@@ -20,9 +20,15 @@ export const Text = styled.div`
 
 export const Kcal = styled.div`
   margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: ${Color.Secondary};
 
   > span {
-    font-weight: 700;
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: 4px;
+    color: ${Grayscale[60]};
   }
 `;
 

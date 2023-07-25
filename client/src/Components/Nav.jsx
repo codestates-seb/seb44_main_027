@@ -18,6 +18,7 @@ import {
   NavMenuItem,
   NavMenuList,
   NavMenuName,
+  Logo,
 } from './Nav.style';
 import useLogout from '../utils/hooks/useLogout';
 
@@ -28,11 +29,7 @@ function Nav() {
   return (
     <NavContainer>
       <NavLogoContainer>
-        <img
-          style={{ width: '6rem', marginLeft: '15px' }}
-          src="/images/logo-long.png"
-          alt="logo-long"
-        />
+        <Logo src="/images/logo-long.png" alt="logo-long" />
       </NavLogoContainer>
       <NavMenuList>
         <NavMenuItem to="/">

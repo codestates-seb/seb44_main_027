@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Grayscale, Color } from '../color';
 
 export const Edit = {
   Container: styled.div`
@@ -6,7 +7,8 @@ export const Edit = {
     width: 100%;
   `,
   Textarea: styled.textarea`
-    border: 1px solid #000;
+    border: 1px solid ${Grayscale[40]};
+    border-radius: 6px;
     outline: 0;
     resize: none;
     min-height: 32px;
@@ -28,28 +30,29 @@ export const Btn = {
   Container: styled.div`
     display: flex;
     justify-content: end;
+    margin-top: 2px;
   `,
   Edit: styled.button`
     border: 0;
     background-color: #fff;
     font-size: 14px;
-    color: blue;
+    color: ${Color.Secondary};
     cursor: pointer;
-    margin-right: 4px;
+    margin-right: 8px;
 
     &:hover {
-      font-weight: bold;
+      color: ${Color.Tertiary};
     }
   `,
   Cancel: styled.button`
     border: 0;
     background-color: #fff;
     font-size: 14px;
-    color: #555;
+    color: ${Grayscale[40]};
     cursor: pointer;
 
     &:hover {
-      font-weight: bold;
+      color: ${Grayscale[80]};
     }
   `,
 };

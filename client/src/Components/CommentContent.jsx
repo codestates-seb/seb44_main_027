@@ -1,8 +1,9 @@
 import React from 'react';
-import { Item, Content, Info } from './CommentContent.style';
+import { Item, Content, Info, AddOns } from './CommentContent.style';
 import CommentEditDelete from './CommentEditDelete';
 import { useSelector } from 'react-redux';
 import ProfileLink from '../utils/ProfileLink';
+import formatTime from '../utils/formatTime';
 
 function CommentContent({ CommentData, setIsEdit, type }) {
   const loginId = localStorage.getItem('memberId') + '';
@@ -17,6 +18,9 @@ function CommentContent({ CommentData, setIsEdit, type }) {
         />
 
         <Info.Content>{CommentData.content}</Info.Content>
+      </Content.Info>
+      <AddOns.Container>
+        <AddOns.CreateAt>{formatTime(CommentData.createdAt)}</AddOns.CreateAt>
         {loginId === memberId ? (
           <CommentEditDelete
             CommentData={CommentData}
@@ -26,8 +30,7 @@ function CommentContent({ CommentData, setIsEdit, type }) {
             type={type}
           />
         ) : undefined}
-      </Content.Info>
-      <Content.CreateAt>{CommentData.createAt}</Content.CreateAt>
+      </AddOns.Container>
     </Item.Content>
   );
 }

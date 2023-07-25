@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Btn } from './CommentEditDelete.style';
+import { Btn, EditMenu } from './CommentEditDelete.style';
 import axios from 'axios';
 import useUpdatePost from '../utils/hooks/useUpdatePost';
 import { useApi } from '../utils/hooks/useApi';
+import dotMenu from '/images/menu-dots.svg';
 
 function CommentEditDelete({ CommentData, commentId, setIsEdit, type }) {
   const api = useApi();
@@ -17,6 +18,7 @@ function CommentEditDelete({ CommentData, commentId, setIsEdit, type }) {
     type,
     setIsLoding
   );
+  const [isClickEditMenu, setIsClickEditMenu] = useState(false);
 
   // 게시글 댓글 삭제 API
   const DeleteData = () => {
@@ -40,19 +42,39 @@ function CommentEditDelete({ CommentData, commentId, setIsEdit, type }) {
 
     // 로그인된 사용자와 게시글의 작성자가 같으면 삭제요청가능
     if (memberId === loginId && confirmValue) {
+      setIsClickEditMenu(false);
       DeleteData();
     }
   };
 
   const handleClickEdit = () => {
+    setIsClickEditMenu(false);
     setIsEdit(true);
   };
-
+  const handleClickEditMenu = () => {
+    setIsClickEditMenu(true);
+  };
+  const handleClickMenuCancel = () => {
+    setIsClickEditMenu(false);
+  };
   return (
-    <Btn.Container>
-      <Btn.Edit onClick={handleClickEdit}>수정</Btn.Edit>
-      <Btn.Delete onClick={handleClickDelete}>삭제</Btn.Delete>
-    </Btn.Container>
+    <>
+      {isClickEditMenu ? (
+        <Btn.Container>
+          <Btn.Menu>
+            <Btn.Edit onClick={handleClickEdit}>수정</Btn.Edit>
+            <Btn.Delete onClick={handleClickDelete}>삭제</Btn.Delete>
+            <Btn.cancel onClick={handleClickMenuCancel}>취소</Btn.cancel>
+          </Btn.Menu>
+        </Btn.Container>
+      ) : (
+        <EditMenu
+          src={dotMenu}
+          alt="수정메뉴아이콘"
+          onClick={handleClickEditMenu}
+        />
+      )}
+    </>
   );
 }
 

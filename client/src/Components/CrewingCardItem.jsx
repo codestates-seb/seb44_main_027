@@ -38,7 +38,7 @@ function CrewingCardItem({ item }) {
           </Card.Author>
           <Card.Title>{item.title}</Card.Title>
           <Card.Content>{item.content}</Card.Content>
-          <Card.Status className={applyStatus.className}>
+          <Card.Status className={[applyStatus.className, 'status'].join(' ')}>
             {applyStatus.text}
           </Card.Status>
         </Card.Info>
