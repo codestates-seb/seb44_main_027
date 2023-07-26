@@ -30,8 +30,9 @@ const MakeStyle = {
 
       > img {
         position: absolute;
-        left: 20px;
+        left: 30px;
         width: 32px;
+        opacity: 0.5;
         cursor: pointer;
       }
     }

@@ -19,10 +19,11 @@ import CreateCrewingStyle from './CreateCrewing.style.js';
 import { useApi } from '../utils/hooks/useApi.js';
 
 const StyledDatePicker = styled(DatePicker)`
-  width: 328px !important;
+  width: 250px !important;
   cursor: pointer !important;
   padding: 8px !important;
-  color: #676767;
+  height: 28px;
+  color: #262626;
 `;
 
 export default function CreateCrewing() {
@@ -144,13 +145,14 @@ export default function CreateCrewing() {
           </>
         )}
         <CreateCrewingStyle.Makepage>
-          <CreateCrewingStyle.Icon
+          <img
+            className="back"
+            src="/images/back.svg"
+            alt="뒤로가기버튼"
             onClick={() => {
               navigate(-1);
             }}
-          >
-            <FontAwesomeIcon icon={faArrowLeft} size="2x" />
-          </CreateCrewingStyle.Icon>
+          />
           <h4>크루잉 게시글 작성</h4>
           <CreateCrewingStyle.Main>
             <CreateCrewingStyle.Img>
@@ -206,13 +208,20 @@ export default function CreateCrewing() {
                 disabled={!activity}
                 showTimeSelect
               />
-              <p>모집 인원</p>
-              <input
-                className="check"
-                type="checkbox"
-                checked={isRecruitChecked}
-                onChange={handleRecruitChange}
-              />
+              <CreateCrewingStyle.RecruitNum>
+                <p>모집 인원</p>
+                <div>
+                  <input
+                    className="check"
+                    type="checkbox"
+                    id="checkbox"
+                    checked={isRecruitChecked}
+                    onChange={handleRecruitChange}
+                  />
+                  <label for="checkbox">인원설정</label>
+                </div>
+              </CreateCrewingStyle.RecruitNum>
+
               <input
                 className="num"
                 type="number"
@@ -221,21 +230,23 @@ export default function CreateCrewing() {
                 onChange={handleNumberChange}
                 disabled={!isRecruitChecked}
               />
+              <CreateCrewingStyle.CreateBtn>
+                <button
+                  disabled={
+                    !uploadedImageUrl ||
+                    !title ||
+                    !content ||
+                    !activity ||
+                    !deadline ||
+                    (isRecruitChecked && !number)
+                  }
+                  onClick={handleFormSubmit}
+                >
+                  작성 완료
+                </button>
+              </CreateCrewingStyle.CreateBtn>
             </CreateCrewingStyle.Input>
           </CreateCrewingStyle.Main>
-          <button
-            disabled={
-              !uploadedImageUrl ||
-              !title ||
-              !content ||
-              !activity ||
-              !deadline ||
-              (isRecruitChecked && !number)
-            }
-            onClick={handleFormSubmit}
-          >
-            작성 완료
-          </button>
         </CreateCrewingStyle.Makepage>
       </CreateCrewingStyle.Container>
     </>

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Grayscale, Color } from '../color';
 
 const CreateCrewingStyle = {
   Container: styled.div`
@@ -50,60 +51,75 @@ const CreateCrewingStyle = {
   `,
   Makepage: styled.div`
     margin: 0 auto;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    width: 900px;
-    height: 600px;
-    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid ${Grayscale[20]};
+    width: 700px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     h4 {
-      display: inline-block;
+      width: 100%;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 400;
+      border-bottom: 1px solid ${Grayscale[20]};
     }
-    > button {
-      margin: 5px;
-      padding: 13px 25px;
-      margin-left: 615px;
-      background-color: #000;
-      color: #fff;
+    > img.back {
+      width: 32px;
+      position: absolute;
+      left: 20px;
+      top: 14px;
+      opacity: 0.5;
+      cursor: pointer;
+    }
+  `,
+  CreateBtn: styled.div`
+    width: 100%;
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      align-self: flex-start;
+      background-color: ${Color.Primary};
+      height: 46px;
+      padding: 0 20px;
+      color: ${Grayscale.White};
       border: none;
       font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 6px;
+
       &[disabled] {
         cursor: not-allowed;
-        background-color: #000 !important;
+        background-color: ${Grayscale[40]} !important;
       }
     }
-    > button:hover {
-      background-color: #890000;
+    button:hover {
+      background-color: ${Color.Primary2};
       border: none;
     }
   `,
-  Icon: styled.div`
-    display: inline-block;
-    color: #c1c1c1;
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    cursor: pointer;
-  `,
+
   Main: styled.div`
-    width: 750px;
-    margin: 0 auto;
+    width: 600px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 40px 20px;
   `,
   Img: styled.div`
+    align-self: flex-start;
     border: 2px dashed #c1c1c1;
     border-radius: 5px;
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     display: inline-block;
     display: flex;
     flex-direction: column;
@@ -120,13 +136,13 @@ const CreateCrewingStyle = {
     }
   `,
   Input: styled.div`
-    width: 328px;
-    position: relative;
-    display: inline-block;
     text-align: left;
+    width: 250px;
     > p {
       margin: 0;
       font-size: 14px;
+      color: ${Grayscale[60]};
+      margin-bottom: 8px;
       text-align: left;
     }
     input {
@@ -134,7 +150,10 @@ const CreateCrewingStyle = {
       padding: 5px;
       border: 1px solid #cccccc;
       border-radius: 4px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    input.num {
+      margin-bottom: 0px;
     }
     input:focus {
       outline: none;
@@ -142,7 +161,8 @@ const CreateCrewingStyle = {
     }
     textarea {
       width: 100%;
-      height: 120px;
+      resize: none;
+      height: 152px;
       padding: 5px;
       border: 1px solid #ccc;
       border-radius: 4px;
@@ -152,18 +172,40 @@ const CreateCrewingStyle = {
       outline: none;
       box-shadow: 0 0 5px rgba(180, 180, 180, 0.5);
     }
-    .num {
-      margin-bottom: 0;
-      padding: 8px;
+  `,
+  RecruitNum: styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+
+    > p {
+      font-size: 14px;
+      color: ${Grayscale[60]};
+      text-align: left;
     }
-    input.check {
-      display: inline-block;
-      position: absolute;
-      bottom: 20px;
-      left: -100px;
-    }
-    input.check:focus {
-      box-shadow: none;
+
+    > div {
+      display: flex;
+      align-items: center;
+
+      > input {
+        width: 14px;
+        height: 14px;
+        margin-bottom: 1px;
+        cursor: pointer;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+      > label {
+        font-size: 14px;
+        margin-left: 4px;
+        color: ${Grayscale[60]};
+        cursor: pointer;
+      }
     }
   `,
 };

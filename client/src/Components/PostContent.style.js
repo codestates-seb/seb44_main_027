@@ -93,7 +93,8 @@ export const EditStyle = {
     border-radius: 6px;
     border: 1px solid ${Grayscale[40]};
     &:focus {
-      outline: 1px solid ${Grayscale[80]};
+      outline: none;
+      box-shadow: 0 0 5px rgba(180, 180, 180, 0.5);
     }
   `,
 
@@ -106,7 +107,8 @@ export const EditStyle = {
     border-radius: 6px;
     border: 1px solid ${Grayscale[40]};
     &:focus {
-      outline: 1px solid ${Grayscale[80]};
+      outline: none;
+      box-shadow: 0 0 5px rgba(180, 180, 180, 0.5);
     }
   `,
 
