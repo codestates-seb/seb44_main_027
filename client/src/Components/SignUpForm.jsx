@@ -195,7 +195,9 @@ function SignUpForm() {
           emailError ||
           nicknameError ||
           passwordError ||
-          confirmPasswordError
+          confirmPasswordError ||
+          !password ||
+          !confirmPassword
         }
       >
         회원가입
