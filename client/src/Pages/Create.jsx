@@ -1,21 +1,30 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import MakeStyle from './Create.style';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CreateWorkoutPage from './CreateWorkoutPage.jsx';
 import CreateDietPage from './CreateDietPage.jsx';
 import CreateCrewingPage from './CreateCrewingPage.jsx';
+import back from '/images/back.svg';
 
 import image01 from '/images/sports.jpg';
 import image02 from '/images/eat.jpg';
 import image03 from '/images/join.jpg';
 
 export default function Create() {
+  const navigate = useNavigate();
+  const onClickBack = () => {
+    navigate(-1); // 바로 이전 페이지로 이동, '/main' 등 직접 지정도 당연히 가능
+  };
+
   return (
     <>
       <MakeStyle.Container>
         <MakeStyle.Make>
-          <h4>어떤 유형의 게시물을 작성할까요?</h4>
+          <div className="title">
+            <img src={back} alt="뒤로가기버튼" onClick={onClickBack} />
+            <p>어떤 유형의 게시물을 작성할까요?</p>
+          </div>
           <MakeStyle.Link>
             <Link to="/create/workout" element={<CreateWorkoutPage />}>
               <img src={image01} alt="img_workout" />

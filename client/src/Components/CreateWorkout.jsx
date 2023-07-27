@@ -104,13 +104,14 @@ export default function CreateWorkout() {
           </>
         )}
         <CreateWorkoutStyle.Makepage>
-          <CreateWorkoutStyle.Icon
+          <img
+            className="back"
+            src="/images/back.svg"
+            alt="뒤로가기버튼"
             onClick={() => {
               navigate(-1);
             }}
-          >
-            <FontAwesomeIcon icon={faArrowLeft} size="2x" />
-          </CreateWorkoutStyle.Icon>
+          />
           <h4>운동 게시글 작성</h4>
           <CreateWorkoutStyle.Main>
             <CreateWorkoutStyle.Img>
@@ -143,11 +144,16 @@ export default function CreateWorkout() {
                 value={content}
                 onChange={handleContentChange}
               ></textarea>
+              <CreateWorkoutStyle.CreateBtn>
+                <button
+                  disabled={!title || !croppedImage}
+                  onClick={handleFormSubmit}
+                >
+                  작성 완료
+                </button>
+              </CreateWorkoutStyle.CreateBtn>
             </CreateWorkoutStyle.Input>
           </CreateWorkoutStyle.Main>
-          <button disabled={!title || !croppedImage} onClick={handleFormSubmit}>
-            작성 완료
-          </button>
         </CreateWorkoutStyle.Makepage>
       </CreateWorkoutStyle.Container>
     </>

@@ -110,13 +110,14 @@ export default function CreateDiet() {
           </>
         )}
         <CreateDietStyle.Makepage>
-          <CreateDietStyle.Icon
+          <img
+            className="back"
+            src="/images/back.svg"
+            alt="뒤로가기버튼"
             onClick={() => {
               navigate(-1);
             }}
-          >
-            <FontAwesomeIcon icon={faArrowLeft} size="2x" />
-          </CreateDietStyle.Icon>
+          />
           <h4>식단 게시글 작성</h4>
           <CreateDietStyle.Main>
             <CreateDietStyle.Img>
@@ -158,11 +159,17 @@ export default function CreateDiet() {
                 onChange={handleKcalChange}
                 placeholder="kcal"
               />
+
+              <CreateDietStyle.CreateBtn>
+                <button
+                  disabled={!title || !croppedImage}
+                  onClick={handleFormSubmit}
+                >
+                  작성 완료
+                </button>
+              </CreateDietStyle.CreateBtn>
             </CreateDietStyle.Input>
           </CreateDietStyle.Main>
-          <button disabled={!title || !croppedImage} onClick={handleFormSubmit}>
-            작성 완료
-          </button>
         </CreateDietStyle.Makepage>
       </CreateDietStyle.Container>
     </>
